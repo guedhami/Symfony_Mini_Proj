@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Liste des Jobs | <small><a href="{{ path('ajout_Hotel') }}">Ajouter</a></small></h2>
+
+    <table class="table table-hover table-striped" border="1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Type</th>
+                <th>Expires at</th>
+                <th>Company</th>
+                <th>Description</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for hotel in leshotels %}
+                <tr>
+                    <td>{{ hotel.id }}</td>
+                    <td>{{ hotel.NomHôtel }}</td>
+                    <td>{{ hotel.Capacite }}</td>
+                    <td>{{ hotel.Price }}</td>
+</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ path('Hotel_show', {'id': hotel.id }) }}">Voir</a>
+                        <a class="btn btn-info" href="{{ path('edit_user', {'id': hotel.id }) }}">Modifier</a>
+                        <a class="btn btn-danger" href="{{ path('cand_delete', {'id': hotel.id }) }}"
+                            onclick="return confirm('Are you sure you want to delete {{ hotel.id }}?')">Supprimer</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">Aucun abonné</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

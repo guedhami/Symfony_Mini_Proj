@@ -1,0 +1,6 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+app_Hotel:
+    path: '/Hotel'
+    controller: App\Controller\HotelController::index

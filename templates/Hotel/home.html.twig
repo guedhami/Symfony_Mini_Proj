@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2>Liste des clients | <small> <a 
+    href="{{ path('Ajouter')}}">Ajouter</a></small></h2>
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+    {% for msg in app.flashes('notice') %}
+    {{ msg }}
+    {% endfor %}
+
+
+    <table class="table table-hover table-striped" border="1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom & Prénom</th>
+                <th>nbrpersonne</th>
+                <th>email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in lesClients %}
+                <tr>
+                    <td>{{ client.id }}</td>
+                    <td>{{ client.nom | upper }}</td>
+                    <td>{{ client.nbrpersonne }}</td>
+                    <td>{{ client.email }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="#">Voir</a>
+                        <a class="btn btn-info" href="{{ path('edit_user', {'id':client.id }) }}"
+                        onclick="return confirm('Are you sure to edit user!{{ client.nom }}')">Modifier</a>
+                        <a class="btn btn-danger" href="{{ path('cand_delete', {'id':client.id }) }}"
+                        onclick="return confirm('Are you sure to delete!{{ client.nom }}')">Supprimer</a>
+
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucun abonné</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
