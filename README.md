@@ -27,7 +27,7 @@ Liste bientôt disponible🚀🚀
 
 ## 📝 License
 
-Copyright © 2021 [Mandooza](https://github.com/guedhami).<br />🚀🚀
+Copyright © 2021 [Hayder Guedhami](https://github.com/guedhami).<br />🚀🚀
 
 ---
 > Pour toute utilisation de ce code open-source, vous êtes priés de citer le nom de développeur de ce projet ❤️🚀🚀🚀
